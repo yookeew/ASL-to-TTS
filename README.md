@@ -1,3 +1,3 @@
-npm install (run once)
+npm install (run once the first time)
 
 npm start
