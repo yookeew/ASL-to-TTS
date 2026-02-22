@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="camera feed and landmarks with mediapipe">
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HandTracker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HandTracker.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,12 +70,30 @@
       <option name="project" value="LOCAL" />
       <updated>1771771833691</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="hand open detection">
+      <option name="closed" value="true" />
+      <created>1771772382933</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771772382933</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit">
+      <option name="closed" value="true" />
+      <created>1771777728134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771777728134</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="camera feed and landmarks with mediapipe" />
-    <option name="LAST_COMMIT_MESSAGE" value="camera feed and landmarks with mediapipe" />
+    <MESSAGE value="hand open detection" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
