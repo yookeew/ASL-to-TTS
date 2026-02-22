@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ASL Vision - Week 1</h1>
+      <h1>ASL-TTS</h1>
       <HandTracker setGestureText={setGestureText} />
       <p style={{ fontSize: "24px", marginTop: "20px" }}>{gestureText}</p>
     </div>
