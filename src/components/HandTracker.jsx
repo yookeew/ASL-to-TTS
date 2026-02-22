@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { Hands } from "@mediapipe/hands";
 import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
 import { Camera } from "@mediapipe/camera_utils";
+import { isHandOpen } from "../utils/gestureUtils"; // your gesture logic
 
-const HandTracker = () => {
+const HandTracker = ({ setGestureText }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const buffer = [];
 
   useEffect(() => {
     const hands = new Hands({
@@ -31,15 +33,30 @@ const HandTracker = () => {
       ctx.translate(canvas.width, 0);
       ctx.scale(-1, 1);
 
-      // Draw the webcam image
+      // Draw webcam
       ctx.drawImage(results.image, 0, 0, canvas.width, canvas.height);
 
       // Draw landmarks
       if (results.multiHandLandmarks) {
-        for (const landmarks of results.multiHandLandmarks) {
+        results.multiHandLandmarks.forEach((landmarks) => {
           drawConnectors(ctx, landmarks, Hands.HAND_CONNECTIONS);
           drawLandmarks(ctx, landmarks);
-        }
+
+          // Push to buffer for smoothing
+          buffer.push(landmarks);
+          if (buffer.length > 10) buffer.shift();
+
+          // Update displayed gesture
+          if (setGestureText) {
+            if (isHandOpen(landmarks)) {
+              setGestureText("Hand is Open!");
+            } else {
+              setGestureText("Hand is Closed!");
+            }
+          }
+        });
+      } else if (setGestureText) {
+        setGestureText("No hand detected");
       }
 
       ctx.restore();
@@ -55,7 +72,7 @@ const HandTracker = () => {
       });
       camera.start();
     }
-  }, []);
+  }, [setGestureText]);
 
   return (
     <div>
