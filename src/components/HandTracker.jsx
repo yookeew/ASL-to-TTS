@@ -4,7 +4,7 @@ import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
 import { Camera } from "@mediapipe/camera_utils";
 import { isSixSeven } from "../utils/gestureUtils";
 
-const HandTracker = ({ setGestureText }) => {
+const HandTracker = ({ setGestureText, onLandmarks }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -12,10 +12,17 @@ const HandTracker = ({ setGestureText }) => {
   const rightBuffer = useRef([]);
   const lastTrigger = useRef(0);
 
+  // Keep latest callback refs so the effect never needs to re-run
+  const onLandmarksRef = useRef(onLandmarks);
+  useEffect(() => { onLandmarksRef.current = onLandmarks; }, [onLandmarks]);
+
+  const setGestureTextRef = useRef(setGestureText);
+  useEffect(() => { setGestureTextRef.current = setGestureText; }, [setGestureText]);
+
   useEffect(() => {
     const hands = new Hands({
       locateFile: (file) =>
-        `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+        `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${file}`,
     });
 
     hands.setOptions({
@@ -38,31 +45,33 @@ const HandTracker = ({ setGestureText }) => {
 
       ctx.drawImage(results.image, 0, 0, canvas.width, canvas.height);
 
+      // Draw landmarks for however many hands are present
+      if (results.multiHandLandmarks) {
+        results.multiHandLandmarks.forEach((landmarks) => {
+          drawConnectors(ctx, landmarks, Hands.HAND_CONNECTIONS);
+          drawLandmarks(ctx, landmarks);
+        });
+      }
+
       if (
         results.multiHandLandmarks &&
         results.multiHandedness &&
         results.multiHandLandmarks.length === 2
       ) {
         results.multiHandLandmarks.forEach((landmarks, i) => {
-          drawConnectors(ctx, landmarks, Hands.HAND_CONNECTIONS);
-          drawLandmarks(ctx, landmarks);
-
           const label = results.multiHandedness[i].label;
 
           // Track index (8) + middle (12) finger tips
           const avgY = (landmarks[8].y + landmarks[12].y) / 2;
-          //const avgY = landmarks[0].y; // wrist
 
           if (label === "Left") {
             leftBuffer.current.push(avgY);
-            if (leftBuffer.current.length > 20)
-              leftBuffer.current.shift();
+            if (leftBuffer.current.length > 20) leftBuffer.current.shift();
           }
 
           if (label === "Right") {
             rightBuffer.current.push(avgY);
-            if (rightBuffer.current.length > 20)
-              rightBuffer.current.shift();
+            if (rightBuffer.current.length > 20) rightBuffer.current.shift();
           }
         });
 
@@ -77,7 +86,7 @@ const HandTracker = ({ setGestureText }) => {
             isSixSeven(leftBuffer.current, rightBuffer.current) &&
             now - lastTrigger.current > 1500
           ) {
-            setGestureText("67");
+            setGestureTextRef.current?.("67");
             lastTrigger.current = now;
 
             // Clear buffers after trigger
@@ -85,13 +94,15 @@ const HandTracker = ({ setGestureText }) => {
             rightBuffer.current = [];
           }
         }
-
       } else {
-        // Reset if both hands disappear
+        // Reset buffers if two hands aren't present
         leftBuffer.current = [];
         rightBuffer.current = [];
-        setGestureText("Show both hands");
+        setGestureTextRef.current?.("Show both hands");
       }
+
+      // Always forward raw results — consumers filter themselves
+      onLandmarksRef.current?.(results);
 
       ctx.restore();
     });
@@ -106,7 +117,7 @@ const HandTracker = ({ setGestureText }) => {
       });
       camera.start();
     }
-  }, [setGestureText]);
+  }, []);
 
   return (
     <div>
