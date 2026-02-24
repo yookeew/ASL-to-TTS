@@ -11,7 +11,7 @@ const NO_HAND_RESET = 400;
 const speak = (text, onEnd) => {
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.8;
+  utterance.rate = 0.6;
   utterance.pitch = 1.2;
   utterance.onend = onEnd;
   window.speechSynthesis.speak(utterance);
@@ -128,6 +128,7 @@ function App() {
               <div className="hint-row">
                 Hide hand for <span className="hint-key">{NO_HAND_RESET / 1000}s</span> to speak + clear
               </div>
+              <div className="hint-row">If there is error, have you tried refreshing?</div>
             </div>
           </div>
         </div>
