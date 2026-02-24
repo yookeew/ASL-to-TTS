@@ -11,7 +11,7 @@ const NO_HAND_RESET = 400;
 const speak = (text, onEnd) => {
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.6;
+  utterance.rate = 0.8;
   utterance.pitch = 1.2;
   utterance.onend = onEnd;
   window.speechSynthesis.speak(utterance);
