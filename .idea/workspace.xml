@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="tts">
+    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="UI improvement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataCollector.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataCollector.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771961275904</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="UI improvement">
+      <option name="closed" value="true" />
+      <created>1771961520815</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1771961520815</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -184,6 +196,7 @@
     <MESSAGE value="added a delay to spell words" />
     <MESSAGE value="changed sensitivity" />
     <MESSAGE value="tts" />
-    <option name="LAST_COMMIT_MESSAGE" value="tts" />
+    <MESSAGE value="UI improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI improvement" />
   </component>
 </project>
