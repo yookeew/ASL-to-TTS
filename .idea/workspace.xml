@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="changed sensitivity">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/useASLModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/useASLModel.js" afterDir="false" />
+    <list default="true" id="72a97333-1d57-4444-9c17-e29749a734a2" name="Changes" comment="tts">
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771955514833</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="changed sensitivity">
+      <option name="closed" value="true" />
+      <created>1771961167218</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771961167218</updated>
+    </task>
+    <task id="LOCAL-00013" summary="tts">
+      <option name="closed" value="true" />
+      <created>1771961275904</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1771961275904</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -168,6 +183,7 @@
     <MESSAGE value="static model works" />
     <MESSAGE value="added a delay to spell words" />
     <MESSAGE value="changed sensitivity" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed sensitivity" />
+    <MESSAGE value="tts" />
+    <option name="LAST_COMMIT_MESSAGE" value="tts" />
   </component>
 </project>
