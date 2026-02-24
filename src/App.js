@@ -6,7 +6,7 @@ import { normalizeAndFlatten } from "./utils/normalisation";
 
 const MODE = "live"; // "live" | "collect"
 const LETTER_COOLDOWN = 1500;  // ms before same letter can append again
-const NO_HAND_RESET = 1000;    // ms of no hand before clearing
+const NO_HAND_RESET = 700;    // ms of no hand before clearing
 
 function App() {
   const [word, setWord] = useState("");
