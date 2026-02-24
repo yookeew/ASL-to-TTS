@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import * as ort from "onnxruntime-web";
 
 // --- Tune these ---
-const CONFIDENCE_THRESHOLD = 0.85; // only accept predictions above this
-const BUFFER_SIZE = 3;            // frames to majority vote across
-const REQUIRED_CONSENSUS = 0.66;   // 75% of buffer must agree on same letter
+const CONFIDENCE_THRESHOLD = 0.75; // only accept predictions above this
+const BUFFER_SIZE = 2;            // frames to majority vote across
+const REQUIRED_CONSENSUS = 0.90;   // 75% of buffer must agree on same letter
 // ------------------
 
 export function useASLModel() {
