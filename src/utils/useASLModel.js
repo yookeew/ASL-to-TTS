@@ -3,7 +3,7 @@ import * as ort from "onnxruntime-web";
 
 // --- Tune these ---
 const CONFIDENCE_THRESHOLD = 0.65; // only accept predictions above this
-const BUFFER_SIZE = 2;            // frames to majority vote across
+const BUFFER_SIZE = 3;            // frames to majority vote across
 const REQUIRED_CONSENSUS = 0.90;   // 75% of buffer must agree on same letter
 // ------------------
 
